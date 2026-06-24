@@ -11,15 +11,22 @@ list/form views, menus, pre-filled security, an **auto-generated icon**, and opt
 ## ⚡ Quick start
 
 ```bash
-# 1) Generate a module straight from GitHub (no install). Creates ./addons/sale_bonus/
-npx github:atdevblog/create-odoo-module sale_bonus --model sale.bonus -o ./addons
+# Replace <your_module> / <your.model> with your own names — creates ./addons/<your_module>/
+npx github:atdevblog/create-odoo-module <your_module> --model <your.model> -o ./addons
 
-# 2) Install it into Odoo
-odoo-bin -c odoo.conf -d mydb -i sale_bonus --stop-after-init
+# Example — creates ./addons/sale_bonus/
+npx github:atdevblog/create-odoo-module sale_bonus --model sale.bonus -o ./addons
 ```
 
-That's it. Needs **Node ≥ 18.3** to run the generator; the module it writes is plain
-Python/XML for any Odoo 17/18/19.
+> **No install needed.** `npx` fetches and runs the generator from GitHub on the fly
+> (into a temp cache, not your project) — the only thing written to disk is the module
+> it creates. You just need **Node ≥ 18.3** and internet.
+
+👉 **More examples** (deps, `--i18n vi`, Odoo 17, interactive) → see **Recipes** below.
+
+Then open `<your_module>/`, adapt the model/views to your business, **and** install it into
+Odoo the usual way (`-i <your_module>`) when you're done — the code is plain Python/XML for
+Odoo 17/18/19.
 
 ## 🍳 Recipes (copy-paste)
 
@@ -58,19 +65,35 @@ create-odoo-module demo --model demo.thing --dry-run
 
 ## What you get
 
+After running the command, you have an **install-ready** module:
+
 ```text
-sale_bonus/
-├── __manifest__.py · models/ · views/ (list+form+menu) · security/ir.model.access.csv
-├── static/description/icon.png   ← auto-generated, shows in the Odoo Apps list
-└── README.md · i18n/vi.po        ← vi.po only with --i18n vi
+sale_bonus/                      # ← create-odoo-module sale_bonus --model sale.bonus --i18n vi
+├── __manifest__.py              # name, version (18.0.1.0.0), depends, data, license
+├── __init__.py
+├── models/
+│   ├── __init__.py
+│   └── sale_bonus.py            # sample model — Char, Text, Many2one, Float, Date, Selection
+├── views/
+│   ├── sale_bonus_views.xml     # list + form views + window action
+│   └── sale_bonus_menus.xml     # root menu + menu item
+├── security/
+│   └── ir.model.access.csv      # access rights — PRE-FILLED (the file devs forget)
+├── static/description/
+│   ├── icon.png                 # auto-generated — shows in the Odoo Apps list
+│   ├── icon.svg                 # scalable companion
+│   └── index.html               # module description page
+├── i18n/                        # only with --i18n vi
+│   ├── sale_bonus.pot           # translation template
+│   └── vi.po                    # Vietnamese — sample strings pre-translated
+└── README.md
 ```
 
-- **Icon** is derived from the module: a domain emblem (`sale`→cart, `stock`→box,
-  `account`→receipt, `report`→chart, …) or its **initials** when nothing matches.
-- **`--i18n vi`** ships a `vi.po` with sample strings already translated
-  (Customer → Khách hàng); Odoo loads it for `vi_VN` users.
-- View tag + manifest version auto-match the `--odoo` you pick (`<tree>` for 17,
-  `<list>` for 18/19).
+> File names follow your model: `sale.bonus` → `sale_bonus.py`, `sale_bonus_views.xml`, etc.
+
+- **Icon** = a domain emblem (`sale`→cart, `stock`→box, `account`→receipt, `report`→chart, …) or the module **initials** when nothing matches.
+- **`--i18n vi`** pre-translates the sample strings (Customer → Khách hàng); Odoo loads `vi.po` for `vi_VN` users.
+- View tag + manifest version auto-match `--odoo` (`<tree>` for 17, `<list>` for 18/19).
 
 ## 🇻🇳 Tiếng Việt
 
@@ -81,6 +104,9 @@ tiếng Việt, `-o ./addons` để xuất thẳng vào addons:
 npx github:atdevblog/create-odoo-module ten_module --model my.model --odoo 18 --i18n vi -o ./addons
 ```
 
+> **Không cần cài package** — `npx` tự tải từ GitHub chạy ngay (vào cache tạm, không
+> vào project), máy chỉ cần **Node ≥ 18.3** + mạng. Thứ lưu lại chỉ là module sinh ra.
+>
 > Đây là **khung khởi đầu** — đọc lại code và chỉnh field/quyền theo nghiệp vụ trước khi cài lên production.
 
 ## Dev

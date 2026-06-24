@@ -1,0 +1,43 @@
+{
+  "name": "create-odoo-module",
+  "version": "0.1.0",
+  "description": "Scaffold a standards-compliant Odoo 18 custom module, with optional Vietnamese (i18n) translations. Pairs with the atdev.blog Odoo guide.",
+  "type": "module",
+  "bin": {
+    "create-odoo-module": "src/cli.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "docs"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/cli.js"
+  },
+  "keywords": [
+    "odoo",
+    "odoo-18",
+    "scaffold",
+    "generator",
+    "cli",
+    "i18n",
+    "erp",
+    "boilerplate"
+  ],
+  "author": "Anh Tran (https://atdev.blog)",
+  "license": "MIT",
+  "homepage": "https://github.com/atdevblog/create-odoo-module#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atdevblog/create-odoo-module.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atdevblog/create-odoo-module/issues"
+  },
+  "engines": {
+    "node": ">=18.3.0"
+  }
+}

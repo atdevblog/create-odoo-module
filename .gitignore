@@ -1,0 +1,6 @@
+node_modules/
+*.log
+.DS_Store
+# Generated test/output modules (don't commit scaffolded samples)
+/tmp-*/
+*.zip

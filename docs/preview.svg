@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="692" height="282" viewBox="0 0 692 282"><g transform="translate(26,26) scale(0.9)"><defs>
+    <linearGradient id="i0_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0891b2"/><stop offset="1" stop-color="#066b84"/></linearGradient>
+    <linearGradient id="i0_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i0_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i0_sheen)"/>
+  <rect x="19" y="32" width="12" height="5" rx="2.5" fill="#ffffff"/><polygon points="28,38 76,38 70,60 38,60" fill="#ffffff"/><circle cx="42" cy="70" r="5" fill="#ffffff"/><circle cx="64" cy="70" r="5" fill="#ffffff"/></g><text x="71" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">cart</text><g transform="translate(136,26) scale(0.9)"><defs>
+    <linearGradient id="i1_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d97706"/><stop offset="1" stop-color="#a15804"/></linearGradient>
+    <linearGradient id="i1_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i1_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i1_sheen)"/>
+  <polygon points="31,24 69,24 69,70 64,74 59,70 54,74 50,70 46,74 41,70 36,74 31,70" fill="#ffffff"/><rect x="37" y="33" width="26" height="3.6" rx="1.8" fill="#cbd5e1"/><rect x="37" y="42" width="26" height="3.6" rx="1.8" fill="#cbd5e1"/><rect x="37" y="51" width="16" height="3.6" rx="1.8" fill="#cbd5e1"/></g><text x="181" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">receipt</text><g transform="translate(246,26) scale(0.9)"><defs>
+    <linearGradient id="i2_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0891b2"/><stop offset="1" stop-color="#066b84"/></linearGradient>
+    <linearGradient id="i2_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i2_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i2_sheen)"/>
+  <rect x="20" y="33" width="60" height="38" rx="5" fill="#ffffff"/><rect x="20" y="40" width="60" height="8" fill="#94a3b8"/><rect x="27" y="55" width="13" height="10" rx="2" fill="#fbbf24"/><rect x="46" y="58" width="27" height="3.4" rx="1.7" fill="#cbd5e1"/><rect x="46" y="64" width="18" height="3.4" rx="1.7" fill="#cbd5e1"/></g><text x="291" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">card</text><g transform="translate(356,26) scale(0.9)"><defs>
+    <linearGradient id="i3_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dc2626"/><stop offset="1" stop-color="#a31c1c"/></linearGradient>
+    <linearGradient id="i3_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i3_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i3_sheen)"/>
+  <polygon points="28,64 50,76 50,52 28,40" fill="#cbd5e1"/><polygon points="72,64 50,76 50,52 72,40" fill="#eef2f7"/><polygon points="50,28 72,40 50,52 28,40" fill="#ffffff"/></g><text x="401" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">box</text><g transform="translate(466,26) scale(0.9)"><defs>
+    <linearGradient id="i4_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dc2626"/><stop offset="1" stop-color="#a31c1c"/></linearGradient>
+    <linearGradient id="i4_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i4_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i4_sheen)"/>
+  <polygon points="50,26 57.3,34.4 68.4,33.6 67.6,44.7 76,52 67.6,59.3 68.4,70.4 57.3,69.6 50,78 42.7,69.6 31.6,70.4 32.4,59.3 24,52 32.4,44.7 31.6,33.6 42.7,34.4" fill="#ffffff"/><circle cx="50" cy="52" r="8" fill="url(#i4_bg)"/></g><text x="511" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">gear</text><g transform="translate(576,26) scale(0.9)"><defs>
+    <linearGradient id="i5_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d9488"/><stop offset="1" stop-color="#0a6e65"/></linearGradient>
+    <linearGradient id="i5_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i5_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i5_sheen)"/>
+  <rect x="27" y="50" width="11" height="22" rx="1.5" fill="#ffffff" opacity="0.7"/><rect x="44" y="40" width="11" height="32" rx="1.5" fill="#ffffff" opacity="0.85"/><rect x="61" y="30" width="11" height="42" rx="1.5" fill="#ffffff"/><rect x="22" y="73" width="56" height="3.4" rx="1.7" fill="#ffffff"/></g><text x="621" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">chart</text><g transform="translate(26,146) scale(0.9)"><defs>
+    <linearGradient id="i6_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#059669"/><stop offset="1" stop-color="#046f4e"/></linearGradient>
+    <linearGradient id="i6_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i6_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i6_sheen)"/>
+  <rect x="22" y="33" width="56" height="34" rx="4" fill="#ffffff"/><polygon points="24,36 50,54 76,36" fill="#cbd5e1"/><polygon points="24,35 50,52 76,35 76,38 50,56 24,38" fill="#94a3b8"/></g><text x="71" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">mail</text><g transform="translate(136,146) scale(0.9)"><defs>
+    <linearGradient id="i7_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#3a34a9"/></linearGradient>
+    <linearGradient id="i7_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i7_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i7_sheen)"/>
+  <rect x="33" y="25" width="4.5" height="9" rx="2" fill="#ffffff"/><rect x="62" y="25" width="4.5" height="9" rx="2" fill="#ffffff"/><rect x="24" y="30" width="52" height="44" rx="5" fill="#ffffff"/><rect x="24" y="30" width="52" height="11" rx="5" fill="#94a3b8"/><rect x="31" y="48" width="7" height="6" rx="1.2" fill="#cbd5e1"/><rect x="46" y="48" width="7" height="6" rx="1.2" fill="#fbbf24"/><rect x="61" y="48" width="7" height="6" rx="1.2" fill="#cbd5e1"/><rect x="31" y="60" width="7" height="6" rx="1.2" fill="#cbd5e1"/><rect x="46" y="60" width="7" height="6" rx="1.2" fill="#cbd5e1"/></g><text x="181" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">calendar</text><g transform="translate(246,146) scale(0.9)"><defs>
+    <linearGradient id="i8_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dc2626"/><stop offset="1" stop-color="#a31c1c"/></linearGradient>
+    <linearGradient id="i8_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i8_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i8_sheen)"/>
+  <circle cx="50" cy="52" r="25" fill="#ffffff"/><ellipse cx="50" cy="52" rx="9.5" ry="25" fill="#cfe0f4"/><ellipse cx="50" cy="52" rx="25" ry="8.5" fill="#cfe0f4"/><ellipse cx="50" cy="52" rx="18.5" ry="25" fill="#e3eefa"/></g><text x="291" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">globe</text><g transform="translate(356,146) scale(0.9)"><defs>
+    <linearGradient id="i9_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dc2626"/><stop offset="1" stop-color="#a31c1c"/></linearGradient>
+    <linearGradient id="i9_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i9_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i9_sheen)"/>
+  <circle cx="50" cy="37" r="12" fill="#ffffff"/><polygon points="27,78 32,59 68,59 73,78" fill="#ffffff"/></g><text x="401" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">person</text><g transform="translate(466,146) scale(0.9)"><defs>
+    <linearGradient id="i10_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ea580c"/><stop offset="1" stop-color="#ad4109"/></linearGradient>
+    <linearGradient id="i10_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i10_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i10_sheen)"/>
+  <circle cx="50" cy="52" r="25" fill="#ffffff" opacity="0.16"/><polygon points="33,52 44,63 69,33 74,38 44,71 28,56" fill="#ffffff"/></g><text x="511" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">check</text><g transform="translate(576,146) scale(0.9)"><defs>
+    <linearGradient id="i11_bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#db2777"/><stop offset="1" stop-color="#a21d58"/></linearGradient>
+    <linearGradient id="i11_sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#i11_bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#i11_sheen)"/>
+  <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#ffffff">MW</text><g fill="#ffffff" opacity="0.8"><rect x="72" y="72" width="7" height="7" rx="1.5"/><rect x="82" y="72" width="7" height="7" rx="1.5" opacity="0.7"/><rect x="72" y="82" width="7" height="7" rx="1.5" opacity="0.7"/></g></g><text x="621" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">custom</text></svg>

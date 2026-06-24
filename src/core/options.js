@@ -32,12 +32,25 @@ export function normalizeOptions(raw = {}) {
     )
   }
 
-  const model = String(raw.model || '').trim()
-  if (!MODEL_RE.test(model)) {
-    throw new Error(
-      `Invalid model name "${raw.model}". Use dotted lowercase, e.g. "library.book".`,
-    )
+  // Model is OPTIONAL — many modules add no new model (inherit views, add data,
+  // assets, security, glue, …). When omitted we scaffold a bare module.
+  const modelRaw = String(raw.model || '').trim()
+  let model = null
+  let table = null
+  let className = null
+  let modelFile = null
+  if (modelRaw) {
+    if (!MODEL_RE.test(modelRaw)) {
+      throw new Error(
+        `Invalid model name "${raw.model}". Use dotted lowercase, e.g. "library.book".`,
+      )
+    }
+    model = modelRaw
+    table = model.replace(/\./g, '_')
+    className = classNameFor(model)
+    modelFile = `${table}.py`
   }
+  const hasModel = !!model
 
   let depends = raw.depends ?? ['base']
   if (typeof depends === 'string') {
@@ -69,14 +82,14 @@ export function normalizeOptions(raw = {}) {
   const version = (raw.version && String(raw.version).trim()) || `${series}.0.1.0.0`
 
   const displayName = (raw.displayName && String(raw.displayName).trim()) || humanize(name)
-  const table = model.replace(/\./g, '_')
 
   return {
     name,
     model,
     table,
-    className: classNameFor(model),
-    modelFile: `${table}.py`,
+    className,
+    modelFile,
+    hasModel,
     depends,
     i18n,
     series,

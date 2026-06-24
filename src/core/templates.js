@@ -33,8 +33,8 @@ function renderFieldLine(f) {
   }
 }
 
-export function rootInit() {
-  return 'from . import models\n'
+export function rootInit(spec) {
+  return spec.hasModel ? 'from . import models\n' : '# -*- coding: utf-8 -*-\n'
 }
 
 export function modelsInit(spec) {
@@ -43,6 +43,13 @@ export function modelsInit(spec) {
 
 export function manifest(spec) {
   const deps = spec.depends.map((d) => `'${d}'`).join(', ')
+  const data = spec.hasModel
+    ? `'data': [
+        'security/ir.model.access.csv',
+        'views/${spec.table}_views.xml',
+        'views/${spec.table}_menus.xml',
+    ],`
+    : `'data': [],`
   return `# -*- coding: utf-8 -*-
 {
     'name': '${spec.displayName}',
@@ -53,11 +60,7 @@ export function manifest(spec) {
     'license': 'LGPL-3',
     'category': '${spec.category}',
     'depends': [${deps}],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/${spec.table}_views.xml',
-        'views/${spec.table}_menus.xml',
-    ],
+    ${data}
     'installable': True,
     'application': ${spec.application ? 'True' : 'False'},
     'auto_install': False,
@@ -192,8 +195,7 @@ a template with \`odoo-bin ... --i18n-export\` to add one.
 ${spec.summary}
 
 - **Technical name:** \`${spec.name}\`
-- **Model:** \`${spec.model}\` (table \`${spec.table}\`)
-- **Odoo version:** ${spec.version}
+${spec.hasModel ? `- **Model:** \`${spec.model}\` (table \`${spec.table}\`)\n` : ''}- **Odoo version:** ${spec.version}
 - **Depends:** ${spec.depends.join(', ')}
 
 ## Install

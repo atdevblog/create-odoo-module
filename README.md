@@ -1,230 +1,95 @@
 # create-odoo-module
 
-> Scaffold a **standards-compliant Odoo 17 / 18 / 19 custom module** in one command —
-> with an optional, pre-filled **Vietnamese (i18n)** translation file.
+Scaffold a ready-to-install **Odoo 17 / 18 / 19** module in one command — models,
+list/form views, menus, pre-filled security, an **auto-generated icon**, and optional
+**Vietnamese (i18n)**. Zero dependencies.
 
 <p align="center">
   <img src="docs/preview.svg" alt="Auto-generated module icons — a purpose emblem from the deps/category, or the module initials" width="660">
 </p>
 
-<p align="center"><em>Every module gets an auto-generated icon — a purpose emblem when the deps/category match a known domain, otherwise its initials.</em></p>
-
-`odoo-bin scaffold` gives you a bare skeleton: empty access rights, no views, no
-menus, no translations. **create-odoo-module** fills exactly those gaps and hands
-you a clean, install-ready module.
-
-Made by [atdev.blog](https://atdev.blog) — a hands-on dev blog & free developer tools.
-
----
-
-## Requirements
-
-- **Node.js ≥ 18.3** (only on the machine where you run the generator).
-- The generated module is plain Python/XML — drop it into the `addons/` of any
-  **Odoo 17, 18 or 19** project. The Odoo server itself does **not** need Node.
-  Pick the target with `--odoo` (it adapts the view syntax + manifest version).
-
-Check your Node version:
+## ⚡ Quick start
 
 ```bash
-node -v
+# 1) Generate a module straight from GitHub (no install). Creates ./addons/sale_bonus/
+npx github:atdevblog/create-odoo-module sale_bonus --model sale.bonus -o ./addons
+
+# 2) Install it into Odoo
+odoo-bin -c odoo.conf -d mydb -i sale_bonus --stop-after-init
 ```
 
----
+That's it. Needs **Node ≥ 18.3** to run the generator; the module it writes is plain
+Python/XML for any Odoo 17/18/19.
 
-## Quick start (no install)
-
-Run it straight from GitHub with `npx` — nothing to install:
-
-```bash
-npx github:atdevblog/create-odoo-module sale_bonus \
-  --model sale.bonus --depends base,sale --i18n vi -o ./addons
-```
-
-That creates `./addons/sale_bonus/` ready to install.
-
-> If you fork this, replace `atdevblog` with your own GitHub username.
-
----
-
-## Install
-
-Pick whichever fits your workflow:
-
-**A. Global command from GitHub**
+## 🍳 Recipes (copy-paste)
 
 ```bash
+# Install once, then use the short command anywhere
 npm install -g github:atdevblog/create-odoo-module
-create-odoo-module --help
-```
 
-**B. Clone and link (for hacking on it)**
-
-```bash
-git clone https://github.com/atdevblog/create-odoo-module.git
-cd create-odoo-module
-npm link            # exposes `create-odoo-module` globally
-```
-
-**C. Just clone and run (zero install)**
-
-```bash
-git clone https://github.com/atdevblog/create-odoo-module.git
-node create-odoo-module/src/cli.js --help
-```
-
----
-
-## Usage
-
-```bash
-# With flags
-create-odoo-module <name> --model <model> [options]
-
-# Interactive — prompts for each field
+# Interactive — prompts for every field
 create-odoo-module
+
+# Sales module: extra deps + Vietnamese translations, straight into your addons
+create-odoo-module sale_bonus --model sale.bonus --depends base,sale --i18n vi -o ~/odoo/addons
+
+# Target Odoo 17 (emits <tree> + 17.x version)
+create-odoo-module legacy_mod --model my.model --odoo 17 -o ./addons
+
+# Mark it as an application, set author + category
+create-odoo-module fleet_extra --model fleet.note --app --author "You" --category Fleet
+
+# Just preview the file list — write nothing
+create-odoo-module demo --model demo.thing --dry-run
 ```
 
-### Options
+## Options
 
-| Flag | Description | Default |
+| Flag | What | Default |
 |---|---|---|
-| `<name>` | Module technical name, snake_case (positional) | — (required) |
-| `--model <m>` | Main model, dotted (`library.book`) | — (required) |
-| `--odoo <17\|18\|19>` | Target Odoo series — sets view syntax + version | `18` |
+| `<name>` | Module technical name, snake_case (positional) | **required** |
+| `--model <m>` | Main model, dotted (`library.book`) | **required** |
+| `--odoo <17\|18\|19>` | Target series (view syntax + version) | `18` |
 | `--depends <list>` | Comma-separated dependencies | `base` |
-| `--i18n <vi\|none>` | Add a pre-filled Vietnamese `vi.po` | `none` |
-| `--author <name>` | Manifest author | `atdev.blog` |
-| `--version <v>` | Manifest version | `18.0.1.0.0` |
-| `--summary <text>` | Short manifest summary | derived |
-| `--category <text>` | Odoo category | `Uncategorized` |
-| `--app` | Mark as an application (`application=True`) | off |
-| `-o, --output <dir>` | Where to create the module folder | `.` (current dir) |
-| `--force` | Overwrite the target folder if it exists | off |
-| `-y, --yes` | Non-interactive; use flags/defaults only | off |
-| `--dry-run` | Print the file list without writing | off |
-| `-h, --help` | Show help | — |
+| `--i18n <vi\|none>` | Add a pre-translated Vietnamese `vi.po` | `none` |
+| `-o, --output <dir>` | Where to create the module | `.` |
+| `--author` · `--version` · `--summary` · `--category` | Manifest fields | sensible |
+| `--app` · `--force` · `-y, --yes` · `--dry-run` · `-h, --help` | flags | — |
 
-> Tip: run from inside your Odoo project and pass `-o ./addons` (or `-o .` if you
-> are already in the addons folder) so the module lands in the right place.
-
----
-
-## What it generates
+## What you get
 
 ```text
-<name>/
-├── __init__.py
-├── __manifest__.py             # version 18.0.1.0.0, depends, data, LGPL-3
-├── models/
-│   ├── __init__.py
-│   └── <model>.py              # sample model: Char, Text, Many2one, Float, Date, Selection
-├── views/
-│   ├── <model>_views.xml        # list + form + window action (<list> on 18/19, <tree> on 17)
-│   └── <model>_menus.xml        # root menu + action menu item
-├── security/
-│   └── ir.model.access.csv     # access line PRE-FILLED (the file devs forget)
-├── static/description/
-│   ├── icon.png                # auto-generated icon (Odoo Apps list loads this)
-│   ├── icon.svg                # scalable companion
-│   └── index.html
-├── README.md
-└── i18n/                       # only with --i18n vi
-    ├── <name>.pot              # translation template (empty msgstr)
-    └── vi.po                   # Vietnamese, sample strings pre-translated
+sale_bonus/
+├── __manifest__.py · models/ · views/ (list+form+menu) · security/ir.model.access.csv
+├── static/description/icon.png   ← auto-generated, shows in the Odoo Apps list
+└── README.md · i18n/vi.po        ← vi.po only with --i18n vi
 ```
 
----
+- **Icon** is derived from the module: a domain emblem (`sale`→cart, `stock`→box,
+  `account`→receipt, `report`→chart, …) or its **initials** when nothing matches.
+- **`--i18n vi`** ships a `vi.po` with sample strings already translated
+  (Customer → Khách hàng); Odoo loads it for `vi_VN` users.
+- View tag + manifest version auto-match the `--odoo` you pick (`<tree>` for 17,
+  `<list>` for 18/19).
 
-## Vietnamese i18n (`--i18n vi`)
+## 🇻🇳 Tiếng Việt
 
-Following the Odoo convention, source strings stay **English** in the code and the
-translation lives in `i18n/vi.po`. With `--i18n vi` the generator writes a `vi.po`
-whose sample strings are already translated:
-
-```po
-msgid "Customer"
-msgstr "Khách hàng"
-
-msgid "Status"
-msgstr "Trạng thái"
-```
-
-Odoo loads `vi.po` automatically when the user's language is **vi_VN** and the
-module is installed or upgraded. After you add fields, re-export the template and
-merge the new strings:
+Lệnh giống hệt phần trên. Chọn `--odoo 17/18/19`, thêm `--i18n vi` để có bản dịch
+tiếng Việt, `-o ./addons` để xuất thẳng vào addons:
 
 ```bash
-odoo-bin -c odoo.conf -d mydb \
-  --i18n-export=i18n/<name>.pot --modules=<name> --stop-after-init
+npx github:atdevblog/create-odoo-module ten_module --model my.model --odoo 18 --i18n vi -o ./addons
 ```
 
----
+> Đây là **khung khởi đầu** — đọc lại code và chỉnh field/quyền theo nghiệp vụ trước khi cài lên production.
 
-## After scaffolding
+## Dev
 
 ```bash
-# Install for the first time
-odoo-bin -c odoo.conf -d mydb -i <name> --stop-after-init
-
-# Upgrade after code changes
-odoo-bin -c odoo.conf -d mydb -u <name> --stop-after-init
+npm test   # node --test, no dependencies
 ```
 
-> Always back up the database and test the upgrade (`-u`) on staging before
-> running it on production.
+The core (`src/core/`) does no disk I/O — it returns a `path → contents` map, reused
+by the CLI and the web version at [atdev.blog](https://atdev.blog).
 
-## Auto-generated module icon
-
-The generator writes `static/description/icon.png` (the image Odoo's Apps list
-loads) plus a scalable `icon.svg`. The icon is derived from the module:
-
-- **Background** is a stable two-stop gradient hashed from the module name.
-- **A purpose emblem** is picked when the name/category/dependencies/model match a
-  known domain: `report`/`dashboard` → bar chart, `calendar`/`event` → calendar,
-  `mail`/`marketing` → envelope, `payment` → card, `account`/`invoice` → receipt,
-  `sale`/`pos`/`crm` → cart, `stock`/`purchase` → box, `mrp`/`automation` → gear,
-  `website` → globe, `hr`/`contact` → person, `project`/`task` → checklist.
-- Otherwise the icon shows the module's **initials** + a small "module" mark
-  (the default *custom module* look).
-
-Replace the files if you have real artwork — they are just a sensible default.
-
----
-
-## 🇻🇳 Tiếng Việt — bắt đầu nhanh
-
-`create-odoo-module` tạo nhanh một module **Odoo 17 / 18 / 19 đúng chuẩn** (manifest,
-model, view list/form, menu, phân quyền điền sẵn) kèm tùy chọn **i18n tiếng Việt** dịch sẵn.
-Chọn phiên bản bằng `--odoo` (tự đổi cú pháp view: `<list>` cho 18/19, `<tree>` cho 17).
-
-```bash
-# Chạy thẳng từ GitHub, không cần cài
-npx github:atdevblog/create-odoo-module ten_module \
-  --model my.model --odoo 18 --i18n vi -o ./addons
-```
-
-Module sinh ra là Python/XML thuần — bỏ vào `addons/` của Odoo 18 bất kỳ rồi cài:
-
-```bash
-odoo-bin -c odoo.conf -d mydb -i ten_module --stop-after-init
-```
-
-> Đây là **khung khởi đầu** — hãy đọc lại code và chỉnh field/quyền theo nghiệp vụ
-> thật trước khi cài lên hệ thống production.
-
----
-
-## Development
-
-```bash
-npm test     # node --test (no dependencies)
-```
-
-The generator core (`src/core/`) does no filesystem I/O — it returns a
-`path → contents` map, so it can be reused by a web UI or a build step. The CLI is a
-thin wrapper that writes that map to disk.
-
-## License
-
-[MIT](./LICENSE) © [Anh Tran](https://atdev.blog)
+MIT © [atdev.blog](https://atdev.blog)

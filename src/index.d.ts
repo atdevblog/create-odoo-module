@@ -5,8 +5,9 @@
 export interface OdooModuleOptions {
   /** Technical module name, snake_case (e.g. "sale_extension"). */
   name: string
-  /** Main model, dotted lowercase (e.g. "library.book"). */
-  model: string
+  /** Main model, dotted lowercase (e.g. "library.book"). Optional — omit for a
+   *  module that defines no new model (inherit views, add data, assets, …). */
+  model?: string
   /** Target Odoo series: 17 | 18 | 19. Drives the view syntax + version. Default 18. */
   odoo?: 17 | 18 | 19 | '17' | '18' | '19'
   /** Dependencies as an array or comma-separated string. Defaults to ["base"]. */
@@ -26,10 +27,11 @@ export interface OdooModuleOptions {
 
 export interface OdooModuleSpec {
   name: string
-  model: string
-  table: string
-  className: string
-  modelFile: string
+  model: string | null
+  table: string | null
+  className: string | null
+  modelFile: string | null
+  hasModel: boolean
   depends: string[]
   i18n: 'vi' | 'none'
   /** Resolved Odoo series (17 | 18 | 19). */

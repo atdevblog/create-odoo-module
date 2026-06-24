@@ -48,6 +48,9 @@ create-odoo-module fleet_extra --model fleet.note --app --author "You" --categor
 
 # Just preview the file list — write nothing
 create-odoo-module demo --model demo.thing --dry-run
+
+# No new model — inherit views / add data / glue. Just omit --model.
+create-odoo-module ak_pos_preorder --depends base,point_of_sale -o ./addons
 ```
 
 ## Options
@@ -55,7 +58,7 @@ create-odoo-module demo --model demo.thing --dry-run
 | Flag | What | Default |
 |---|---|---|
 | `<name>` | Module technical name, snake_case (positional) | **required** |
-| `--model <m>` | Main model, dotted (`library.book`) | **required** |
+| `--model <m>` | Main model, dotted (`library.book`) — **omit for a no-model module** | optional |
 | `--odoo <17\|18\|19>` | Target series (view syntax + version) | `18` |
 | `--depends <list>` | Comma-separated dependencies | `base` |
 | `--i18n <vi\|none>` | Add a pre-translated Vietnamese `vi.po` | `none` |

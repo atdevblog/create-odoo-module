@@ -127,6 +127,25 @@ test('renders a valid PNG icon', () => {
   assert.deepEqual([...png.subarray(0, 4)], [137, 80, 78, 71]) // PNG signature
 })
 
+test('model is optional — scaffolds a bare module', () => {
+  const { files, spec } = generateModule({ name: 'glue_mod' }) // no --model
+  assert.equal(spec.hasModel, false)
+  assert.equal(spec.model, null)
+  assert.ok(files['glue_mod/__manifest__.py'])
+  assert.match(files['glue_mod/__manifest__.py'], /'data': \[\]/)
+  assert.ok(!files['glue_mod/models/__init__.py'])
+  assert.ok(!Object.keys(files).some((p) => p.includes('/views/')))
+  assert.ok(!files['glue_mod/security/ir.model.access.csv'])
+  // icon + manifest + readme still generated
+  assert.ok(files['glue_mod/static/description/icon.svg'])
+  assert.ok(files['glue_mod/README.md'])
+})
+
+test('a blank model string counts as no model', () => {
+  const { spec } = generateModule({ name: 'glue_mod', model: '   ' })
+  assert.equal(spec.hasModel, false)
+})
+
 test('parses comma-separated depends', () => {
   const { spec } = generateModule({
     name: 'sale_extension',

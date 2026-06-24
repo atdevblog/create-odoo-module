@@ -13,11 +13,11 @@ import { renderIconPng } from './core/png-icon.js'
 const HELP = `create-odoo-module — scaffold a standards-compliant Odoo 18 module
 
 Usage:
-  create-odoo-module <name> --model <model> [options]
+  create-odoo-module <name> [--model <model>] [options]
   create-odoo-module                       (interactive)
 
 Options:
-  --model <m>        Main model, dotted (e.g. library.book)   [required]
+  --model <m>        Main model, dotted (library.book). Omit for a no-model module.
   --odoo <17|18|19>  Target Odoo series (view syntax+version) [default: 18]
   --depends <list>   Comma-separated dependencies             [default: base]
   --i18n <vi|none>   Add a pre-filled Vietnamese vi.po         [default: none]
@@ -75,7 +75,7 @@ async function interactiveFill(values, positionals) {
       return a || def || ''
     }
     const name = positionals[0] || (await ask('Module technical name (e.g. sale_extension)'))
-    const model = values.model || (await ask('Main model (e.g. library.book)'))
+    const model = values.model || (await ask('Main model — optional, blank = none (e.g. library.book)'))
     const odoo = values.odoo || (await ask('Target Odoo version (17/18/19)', '18'))
     const depends = values.depends || (await ask('Depends (comma-separated)', 'base'))
     const wantI18n = values.i18n
@@ -105,7 +105,7 @@ async function main() {
     return
   }
 
-  const haveRequired = positionals[0] && values.model
+  const haveRequired = !!positionals[0] // only the module name is required; model is optional
   let raw
   if (values.yes || haveRequired) {
     raw = {
@@ -168,7 +168,7 @@ async function main() {
   for (const w of warnings) console.log(`  • ${w}`)
   console.log('\nNext steps:')
   console.log(`  odoo-bin -c odoo.conf -d mydb -i ${spec.name} --stop-after-init`)
-  if (spec.i18n === 'vi') {
+  if (spec.i18n === 'vi' && spec.hasModel) {
     console.log('  # Switch the user language to Vietnamese (vi_VN) to see translations.')
   }
 }

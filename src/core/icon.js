@@ -47,17 +47,18 @@ function initialsOf(name) {
 // keyword (substring) -> emblem key. First match wins, so order = priority.
 const EMBLEM_RULES = [
   // Specific intents first so e.g. "sales_report" -> chart (not cart).
-  [['report', 'dashboard', 'analytic', 'kpi', 'statistic', 'metric'], 'chart'],
-  [['calendar', 'event', 'appointment', 'booking', 'schedul'], 'calendar'],
-  [['mail', 'mailing', 'marketing', 'newsletter', 'email', 'sms'], 'mail'],
-  [['payment', 'stripe', 'paypal', 'wallet'], 'card'],
-  [['account', 'invoic', 'expense', 'bank', 'tax', 'ledger'], 'receipt'],
-  [['pos', 'sale', 'crm', 'ecommerce', 'order'], 'cart'],
-  [['stock', 'inventory', 'purchase', 'delivery', 'warehouse', 'product'], 'box'],
-  [['mrp', 'manufactur', 'maintenance', 'automation', 'connector'], 'gear'],
-  [['website', 'web', 'portal', 'seo'], 'globe'],
-  [['hr', 'employee', 'recruit', 'payroll', 'attendance', 'contact', 'partner'], 'person'],
-  [['project', 'task', 'todo', 'helpdesk', 'ticket'], 'check'],
+  [['report', 'dashboard', 'analytic', 'kpi', 'statistic', 'metric', 'insight', 'forecast'], 'chart'],
+  [['calendar', 'event', 'appointment', 'booking', 'schedul', 'rental', 'timesheet', 'leave', 'holiday'], 'calendar'],
+  [['mail', 'mailing', 'marketing', 'newsletter', 'email', 'sms', 'campaign'], 'mail'],
+  [['payment', 'stripe', 'paypal', 'wallet', 'subscription', 'recurring', 'membership', 'donation', 'billing'], 'card'],
+  [['account', 'invoic', 'expense', 'bank', 'tax', 'ledger', 'budget'], 'receipt'],
+  [['pos', 'sale', 'crm', 'ecommerce', 'order', 'shop', 'retail', 'restaurant', 'quotation', 'lead', 'opportunity'], 'cart'],
+  [['stock', 'inventory', 'purchase', 'delivery', 'warehouse', 'product', 'shipping', 'logistics', 'barcode'], 'box'],
+  [['mrp', 'manufactur', 'maintenance', 'automation', 'connector', 'integration', 'webhook', 'sync', 'config', 'import', 'export'], 'gear'],
+  [['document', 'dms', 'contract', 'knowledge', 'attachment', 'signature', 'esign'], 'file'],
+  [['website', 'web', 'portal', 'seo', 'blog', 'forum', 'social', 'landing', 'snippet'], 'globe'],
+  [['hr', 'employee', 'recruit', 'payroll', 'attendance', 'contact', 'partner', 'member', 'signup'], 'person'],
+  [['project', 'task', 'todo', 'helpdesk', 'ticket', 'survey', 'quiz', 'quality', 'approval'], 'check'],
 ]
 
 function detectEmblem(spec) {
@@ -154,6 +155,13 @@ export const EMBLEMS = {
   check: [
     { t: 'c', cx: 50, cy: 52, r: 25, fill: W, opacity: 0.16 },
     { t: 'p', pts: [[33, 52], [44, 63], [69, 33], [74, 38], [44, 71], [28, 56]], fill: W },
+  ],
+  file: [
+    { t: 'p', pts: [[30, 24], [58, 24], [70, 36], [70, 76], [30, 76]], fill: W },
+    { t: 'p', pts: [[58, 24], [58, 36], [70, 36]], fill: G2 },
+    { t: 'r', x: 38, y: 42, w: 24, h: 3.6, rx: 1.8, fill: G2 },
+    { t: 'r', x: 38, y: 51, w: 24, h: 3.6, rx: 1.8, fill: G2 },
+    { t: 'r', x: 38, y: 60, w: 16, h: 3.6, rx: 1.8, fill: G2 },
   ],
   // Default "custom module": stacked module blocks (a puzzle-ish mark).
   blocks: [

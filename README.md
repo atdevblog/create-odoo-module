@@ -18,6 +18,10 @@ npx github:atdevblog/create-odoo-module <your_module> --model <your.model> -o ./
 npx github:atdevblog/create-odoo-module sale_bonus --model sale.bonus -o ./addons
 ```
 
+<p align="center">
+  <img src="docs/eg-generate.png" alt="Real CLI output — scaffolding an install-ready module (here with no model: 6 files)" width="720">
+</p>
+
 > **No install needed.** `npx` fetches and runs the generator from GitHub on the fly
 > (into a temp cache, not your project) — the only thing written to disk is the module
 > it creates. You just need **Node ≥ 18.3** and internet.
